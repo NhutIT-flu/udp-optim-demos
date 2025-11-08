@@ -76,27 +76,8 @@ Những gì cần quan sát:
 - **FEC**: mẫu N data + 1 parity; bộ đếm `Recovered` tăng khi có mất gói tin.
 - **Pipeline**: server ghi log `pkt/s` và kích thước queue khi tải tăng.
 
-## Bảng Kết Quả Thử Nghiệm
 
-Bảng sau đây là template để ghi lại kết quả khi thử nghiệm các kỹ thuật tối ưu UDP. Điền các giá trị đo được từ output của server/client và Wireshark:
-
-| Technique | Params | Packets Sent | Bytes Sent | Logical Msgs | Goodput (msg/s) | Loss % (est.) | CPU % | Notes |
-|-----------|--------|--------------|------------|--------------|-----------------|---------------|-------|-------|
-| Echo | payload=512, tps=5000 | | | | | | | |
-| Aggregation | k=8, msgLen=100 | | | | | | | |
-| FEC XOR | N=8, payload=400 | | | | | | | |
-| Pipeline | workers=4 | | | | | | | |
-
-**Giải thích các cột:**
-- **Technique**: Tên kỹ thuật tối ưu (Echo, Aggregation, FEC, Pipeline)
-- **Params**: Tham số đã sử dụng khi chạy demo
-- **Packets Sent**: Tổng số packet UDP đã gửi
-- **Bytes Sent**: Tổng số bytes đã gửi
-- **Logical Msgs**: Số message logic (đặc biệt quan trọng với Aggregation)
-- **Goodput (msg/s)**: Tốc độ message thực tế (message/giây)
-- **Loss % (est.)**: Tỷ lệ mất gói tin ước tính (từ Wireshark hoặc server log)
-- **CPU %**: Mức sử dụng CPU (nếu đo được)
-- **Notes**: Ghi chú thêm về kết quả hoặc quan sát
+Technique | Params | Packets Sent | Bytes Sent | Logical Msgs | Goodput (msg/s) | Loss % (est.) | CPU % | Notes
 
 ## Lưu ý
 - Giữ payload **<= 1200B** để tránh phân mảnh.
